@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capstone.Classes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,7 +10,7 @@ namespace Capstone.Views
         /*** 
          * Model Data that this menu system needs to operate on goes here.
          ***/
-
+        protected VendingMachine MyMachine;
 
         /// <summary>
         /// This is where every sub-menu puts its options for display to the user.
@@ -24,9 +25,10 @@ namespace Capstone.Views
         /// <summary>
         /// Constructor - pass in model data here
         /// </summary>
-        public CLIMenu()
+        public CLIMenu(VendingMachine machineReference)
         {
             this.menuOptions = new Dictionary<string, string>();
+            this.MyMachine = machineReference;
         }
 
         /// <summary>

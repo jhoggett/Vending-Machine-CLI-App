@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Capstone.Classes;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Capstone.Views
@@ -12,11 +14,11 @@ namespace Capstone.Views
         /// <summary>
         /// Constructor adds items to the top-level menu
         /// </summary>
-        public MainMenu() : base()
+        public MainMenu(VendingMachine machineReference) : base(machineReference)
         {
             this.Title = "*** Main Menu ***";
-            this.menuOptions.Add("1", "Option One");
-            this.menuOptions.Add("2", "Add two numbers");
+            this.menuOptions.Add("1", "Display Inventory");
+            this.menuOptions.Add("2", "Go to Purchase menu");
             this.menuOptions.Add("Q", "Quit");
         }
 
@@ -31,14 +33,21 @@ namespace Capstone.Views
             switch (choice)
             {
                 case "1":
-                    // This is just a sample, does nothing
-                    return true;
-                case "2":
-                    // Get some input form the user, and then do something
-                    int someNumber = GetInteger("Please enter a whole number:");
-                    int anotherNumber = GetInteger("Please enter another whole number:");
-                    Console.WriteLine($"{someNumber} + {anotherNumber} = {someNumber + anotherNumber}.");
+                    // Display output of file containing Position # and Item
+                    //VendingMachine vendingMachine = new VendingMachine(@"C:\Users\JHoggett\Git\c-module-1-capstone-team-8\18_Capstone\etc\vendingmachine.csv");
+                    VendingMachine vendingMachine = new VendingMachine();
+                    List<string> listToDisplay = new List<string>();
+                    listToDisplay = vendingMachine.GiveMenuProductList();
+                    foreach(string word in listToDisplay)
+                    {
+                        Console.WriteLine(word);
+                    }
                     Pause("");
+                        return true;
+                case "2":
+                    // Sends user to the purchase menu
+                    PurchaseMenu menu = new PurchaseMenu(this.MyMachine);
+                    menu.Run();
                     return true;
             }
             return true;
