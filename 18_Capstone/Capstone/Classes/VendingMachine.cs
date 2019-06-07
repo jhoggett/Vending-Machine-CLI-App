@@ -168,7 +168,7 @@ namespace Capstone.Classes
 
         public void AuditSales(string whatFunction, decimal firstBalance, decimal secondBalance)
         {
-            using(StreamWriter sw = new StreamWriter(@"C:\Users\BGalinas\Desktop\QuizMaker\Log.txt", true))
+            using(StreamWriter sw = new StreamWriter(@"Log.txt", true))
             {
                 sw.WriteLine("{0} {1} {2 :C} {3 :C}", DateTime.Now, whatFunction, firstBalance, secondBalance);
             }

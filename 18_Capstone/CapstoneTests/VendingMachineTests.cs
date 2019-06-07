@@ -56,7 +56,7 @@ namespace CapstoneTests
         public void WhenExitingVendingMachine_ShouldReturnChangeInLeastAmountOfCoinsPossible2()
         {
             VendingMachine testMachine = new VendingMachine();
-            testMachine.Load(@"C:\Users\BGalinas\GitRepos\c-module-1-capstone-team-8\18_Capstone\etc\vendingmachine.csv");
+            testMachine.Load(@"Data\vendingmachine.csv");
             testMachine.FeedMoney((decimal)2.00);
             testMachine.VendItem("D1");
             
