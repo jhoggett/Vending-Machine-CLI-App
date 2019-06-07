@@ -34,13 +34,11 @@ namespace Capstone.Views
             {
                 case "1":
                     // Display output of file containing Position # and Item
-                    //VendingMachine vendingMachine = new VendingMachine(@"C:\Users\JHoggett\Git\c-module-1-capstone-team-8\18_Capstone\etc\vendingmachine.csv");
-                    VendingMachine vendingMachine = new VendingMachine();
                     List<string> listToDisplay = new List<string>();
-                    listToDisplay = vendingMachine.GiveMenuProductList();
+                    listToDisplay = MyMachine.GiveMenuProductList();
                     foreach(string word in listToDisplay)
                     {
-                        Console.WriteLine(word);
+                        Console.WriteLine(word); 
                     }
                     Pause("");
                         return true;

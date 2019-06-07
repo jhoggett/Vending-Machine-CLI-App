@@ -13,7 +13,7 @@ namespace Capstone
             // If you do not want to use the CLI menu, you can delete the files from the Views folder.
 
             VendingMachine vendingMachine = new VendingMachine();
-            //vendingMachine.Load(@"C:\Users\JHoggett\Git\c-module-1-capstone-team-8\18_Capstone\etc\vendingmachine.csv");
+            vendingMachine.Load(@"C:\Users\BGalinas\GitRepos\c-module-1-capstone-team-8\18_Capstone\etc\vendingmachine.csv");
 
             MainMenu menu = new MainMenu(vendingMachine);
             menu.Run();
